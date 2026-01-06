@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -26,11 +26,13 @@ jobs:
       - name: Render Quarto Project
         uses: quarto-dev/quarto-actions/render@v2
         with:
-          path: book # By default, the current working dir is used i.e `quarto render .`
+          path: _book # By default, the current working dir is used i.e `quarto render .`
 
       - name: Publish to GitHub Pages (and render)
         if: github.event_name != 'pull_request'
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          path: book
+          path: _book
           target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
