@@ -3,8 +3,8 @@ project:
 
 book:
   title: "quarto-book"
-  author: "Norah Jones"
-  date: "1/6/2026"
+  author: "Igors Dubanevics"
+  date: "06/01/2026"
   chapters:
     - index.qmd
     - intro.qmd
